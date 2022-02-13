@@ -20,55 +20,55 @@ public class RegistrationStep extends RegistrationPage {
     public Calendar calendar = new Calendar();
     public StateAndCity stateAndCity = new StateAndCity();
 
-    @Step("Открываем сайт с формой для заполнения")
+    @Step("РћС‚РєСЂС‹РІР°РµРј СЃР°Р№С‚ СЃ С„РѕСЂРјРѕР№ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ")
     public RegistrationStep openRegistrationPage() {
         open("https://demoqa.com/automation-practice-form");
         return this;
     }
 
-    @Step("Вводим имя")
+    @Step("Р’РІРѕРґРёРј РёРјСЏ")
     public RegistrationStep setFirstName(String value) {
         firstName.setValue(value);
         return this;
     }
 
-    @Step("Вводим фамилию")
+    @Step("Р’РІРѕРґРёРј С„Р°РјРёР»РёСЋ")
     public RegistrationStep setLastName(String value) {
         lastname.setValue(value);
         return this;
     }
 
-    @Step("Вводим электронную почту")
+    @Step("Р’РІРѕРґРёРј СЌР»РµРєС‚СЂРѕРЅРЅСѓСЋ РїРѕС‡С‚Сѓ")
     public RegistrationStep setUserEmail(String value) {
         userEmail.setValue(value);
         return this;
     }
 
-    @Step("Вводим номер телефона")
+    @Step("Р’РІРѕРґРёРј РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°")
     public RegistrationStep setUserPhoneNumber(String value) {
         userNumberPhone.setValue(value);
         return this;
     }
 
-    @Step("Выбираем пол")
+    @Step("Р’С‹Р±РёСЂР°РµРј РїРѕР»")
     public RegistrationStep setUserMale() {
         userMale.click();
         return this;
     }
 
-    @Step("Вводим дату рождения")
+    @Step("Р’РІРѕРґРёРј РґР°С‚Сѓ СЂРѕР¶РґРµРЅРёСЏ")
     public RegistrationStep setBirthDate() {
         calendar.setDate();
         return this;
     }
 
-    @Step("Выбираем учебные предметы")
+    @Step("Р’С‹Р±РёСЂР°РµРј СѓС‡РµР±РЅС‹Рµ РїСЂРµРґРјРµС‚С‹")
     public RegistrationStep setSubject(String value) {
         userSubject.setValue(value).pressEnter();
         return this;
     }
 
-    @Step("Выбираем хобби")
+    @Step("Р’С‹Р±РёСЂР°РµРј С…РѕР±Р±Рё")
     public RegistrationStep setHobbies(String... hobbies) {
         for (int i = 0; i < hobbies.length; i++) {
             if (hobbies[i].equals("Sports")) userHobbiesSport.click();
@@ -78,37 +78,37 @@ public class RegistrationStep extends RegistrationPage {
         return this;
     }
 
-//    @Step("Загружаем файл из ресурсов")
+//    @Step("Р—Р°РіСЂСѓР¶Р°РµРј С„Р°Р№Р» РёР· СЂРµСЃСѓСЂСЃРѕРІ")
 //    public RegistrationStep setFile() {
 //        userFile.uploadFile(new File("src/test/resources/img/1.png"));
 //        return this;
 //    }
 
-    @Step("Вводим адрес")
+    @Step("Р’РІРѕРґРёРј Р°РґСЂРµСЃ")
     public RegistrationStep setUserAddress(String value) {
         userAddress.setValue(value).scrollTo();
         return this;
     }
 
-    @Step("Вводим город и штат проживания")
+    @Step("Р’РІРѕРґРёРј РіРѕСЂРѕРґ Рё С€С‚Р°С‚ РїСЂРѕР¶РёРІР°РЅРёСЏ")
     public RegistrationStep setStateAndCity() {
         stateAndCity.setStateAndCity();
         return this;
     }
 
-    @Step("Нажимаем на кнопку 'отправить' ")
+    @Step("РќР°Р¶РёРјР°РµРј РЅР° РєРЅРѕРїРєСѓ 'РѕС‚РїСЂР°РІРёС‚СЊ' ")
     public RegistrationStep pressSubmit() {
         buttonSubmit.click();
         return this;
     }
 
-    @Step("Проверяем вдидимость заполненной формы")
+    @Step("РџСЂРѕРІРµСЂСЏРµРј РІРґРёРґРёРјРѕСЃС‚СЊ Р·Р°РїРѕР»РЅРµРЅРЅРѕР№ С„РѕСЂРјС‹")
     public RegistrationStep checkModalIsVisible() {
         modal.shouldHave(Condition.visible);
         return this;
     }
 
-    @Step("Проверяем поля с результатами формы")
+    @Step("РџСЂРѕРІРµСЂСЏРµРј РїРѕР»СЏ СЃ СЂРµР·СѓР»СЊС‚Р°С‚Р°РјРё С„РѕСЂРјС‹")
     public RegistrationStep checkFieldFromResultPracticeForm(String label, String value) {
         check.$(byText(label)).parent().shouldHave(text(value));
         return this;

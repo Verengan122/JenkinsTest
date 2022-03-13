@@ -42,8 +42,12 @@ dependencies {
             "org.junit.jupiter:junit-jupiter-engine:$junitVersion")
 }
 
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 tasks.withType(Test) {
-    systemProperties += System.properties
+    systemProperties(System.getProperties())
     systemProperty "junit.jupiter.extensions.autodetection.enabled", "true"
 
     testLogging {
